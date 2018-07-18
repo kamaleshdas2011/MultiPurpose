@@ -16,6 +16,7 @@ using System.Data.Entity;
 namespace MultiPurpose.Controllers
 {
     [RoutePrefix("api/admin")]
+    //[Authorize]
     public class AdminController : ApiController
     {
         private DatabaseContext db = new DatabaseContext();
@@ -177,6 +178,19 @@ namespace MultiPurpose.Controllers
 
             db.SaveChanges();
             return Ok();
+        }
+
+
+        /// <summary>
+        /// ATM
+        /// </summary>
+        /// 
+
+
+        [Route("getuser")]
+        public void GetUser()
+        {
+            var user = System.Security.Principal.WindowsIdentity.GetCurrent();
         }
     }
 }
